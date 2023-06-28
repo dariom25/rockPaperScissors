@@ -2,7 +2,8 @@ const availableChoices = ["Rock", "Paper", "Scissors"]
 
 function getComputerChoice(availableChoices) {
     let randomIndex = Math.floor(Math.random() * availableChoices.length);
-    return availableChoices[randomIndex]
+    let computersChoice = availableChoices[randomIndex];
+    return computersChoice
 }
 
 //get the computers choice
