@@ -8,21 +8,25 @@ function getComputerChoice(availableChoices) {
 
 function getPlayersChoice(availableChoices) {
     let playersChoice = prompt("Please type either rock, paper or scissors.");
+    checkIfPlayersChoiceIsValid(playersChoice, availableChoices)
+    console.log(playersChoice) //everytime you type sth wrong it gets printed when you type sth correct
     return playersChoice
 }
 
-function checkIfPlayersChoiceIsValid(playersChoice) {
-    playersChoice = playersChoice.toLocaleLowerCase();
-    if (availableChoices.includes(playersChoice)) {
-        console.log("Die Antwort ist valide.")
+function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
+    playersChoice = playersChoice.toLowerCase();
+    if (availableChoices.includes(playersChoice) === true) {
+        //can this be left empty?
     } else {
-        console.log("Die Antwort ist nicht valide.")
-    }
-}
+        getPlayersChoice(availableChoices)
+    } 
+} //improve funct --> what is the goal? what does it do at the moment?
 
 //get the computers choice
 //get the players choice
+//check if the the players answer is valid
     //lower all letters of the players prompt
-    //check if the the players answer is valid
+    //check if prompt is rock, paper or scissors
 //compare the computers and players choice
 //determine who wins
+//start the loop again
