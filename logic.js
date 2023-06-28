@@ -7,10 +7,15 @@ function getComputerChoice(availableChoices) {
 }
 
 function getPlayersChoice(availableChoices) {
-    let playersChoice = prompt("What do you choose? rock, paper or scissors?");
-    console.log(playersChoice)
+    let playersChoice = prompt("Please type either rock, paper or scissors.");
+    lowerAllLetters(playersChoice);
 }
 
+function lowerAllLetters(word) {
+    let loweredWord = word.toLowerCase();
+    console.log(loweredWord);
+    return loweredWord
+}
 //get the computers choice
 //get the players choice
     //lower all letters of the players prompt
