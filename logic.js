@@ -1,4 +1,6 @@
 const availableChoices = ["rock", "paper", "scissors"]
+const computerSelection = getComputerChoice()
+const playerSelection = getPlayersChoice()
 
 function getComputerChoice(availableChoices) {
     let randomIndex = Math.floor(Math.random() * availableChoices.length);
@@ -6,10 +8,8 @@ function getComputerChoice(availableChoices) {
     return computersChoice
 }
 
-function getPlayersChoice(availableChoices) {
+function getPlayersChoice() {
     let playersChoice = prompt("Please type either rock, paper or scissors.");
-    checkIfPlayersChoiceIsValid(playersChoice, availableChoices)
-    console.log(playersChoice) //everytime you type sth wrong it gets printed when you type sth correct
     return playersChoice
 }
 
@@ -21,6 +21,8 @@ function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
         getPlayersChoice(availableChoices)
     } 
 } //improve funct --> what is the goal? what does it do at the moment?
+
+
 
 //get the computers choice
 //get the players choice
