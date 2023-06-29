@@ -8,7 +8,14 @@ function getComputerChoice(availableChoices) {
 
 function getPlayersChoice() {
     let playersChoice = prompt("Please type either rock, paper or scissors.");
-    return playersChoice
+    playersChoice = playersChoice.toLowerCase();
+    if (availableChoices.includes(playersChoice) === true) {
+        console.log(playersChoice)
+        return playersChoice
+    } else {
+        getPlayersChoice()
+    }
+    
 }
 
 function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
