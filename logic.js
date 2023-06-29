@@ -1,6 +1,6 @@
 const availableChoices = ["rock", "paper", "scissors"]
-const computerSelection = getComputerChoice()
-const playerSelection = getPlayersChoice()
+//const computerSelection = getComputerChoice()
+//const playerSelection = getPlayersChoice()
 
 function getComputerChoice(availableChoices) {
     let randomIndex = Math.floor(Math.random() * availableChoices.length);
@@ -22,7 +22,24 @@ function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
     } 
 } //improve funct --> what is the goal? what does it do at the moment?
 
-
+function playRound(playerSelection, computerSelection) {
+    console.log("The computer chose " + computerSelection + ".");
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+        console.log("Computer loses! Rock beats scissors.")
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        console.log("Computer loses! Paper beats rock.")
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        console.log("Computer loses! Scissors beat paper.")
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        console.log("You lose! Scissors beat paper.")
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        console.log("You lose! Rock beats scissors.")
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        console.log("You lose! Paper beats rock.")
+    } else {
+        console.log("It's a draw.")
+    }
+} //ich könnte wahrscheinlich auch switch nutzen
 
 //get the computers choice
 //get the players choice
