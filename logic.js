@@ -9,23 +9,8 @@ function getComputerChoice(availableChoices) {
 function getPlayersChoice() {
     let playersChoice = prompt("Please type either rock, paper or scissors.");
     playersChoice = playersChoice.toLowerCase();
-    if (availableChoices.includes(playersChoice) === true) {
-        console.log(playersChoice)
-        return playersChoice
-    } else {
-        getPlayersChoice()
-    }
-    
+    return playersChoice
 }
-
-function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
-    playersChoice = playersChoice.toLowerCase();
-    if (availableChoices.includes(playersChoice) === true) {
-        //can this be left empty?
-    } else {
-        getPlayersChoice(availableChoices)
-    } 
-} //improve funct --> what is the goal? what does it do at the moment?
 
 function playRound(playerSelection, computerSelection) {
     console.log("The computer chose: " + computerSelection);
