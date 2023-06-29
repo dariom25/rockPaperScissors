@@ -23,7 +23,8 @@ function checkIfPlayersChoiceIsValid(playersChoice, availableChoices) {
 } //improve funct --> what is the goal? what does it do at the moment?
 
 function playRound(playerSelection, computerSelection) {
-    console.log("The computer chose " + computerSelection + ".");
+    console.log("The computer chose: " + computerSelection);
+    console.log("You chose: " + playerSelection)
     if (playerSelection === "rock" && computerSelection === "scissors") {
         console.log("Computer loses! Rock beats scissors.")
     } else if (playerSelection === "paper" && computerSelection === "rock") {
