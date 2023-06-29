@@ -39,7 +39,15 @@ function playRound(playerSelection, computerSelection) {
     } else {
         console.log("It's a draw.")
     }
-} //ich könnte wahrscheinlich auch switch nutzen
+}
+
+function game() {
+    let counter = 0
+    while (counter < 5) {
+        playRound(getPlayersChoice(), getComputerChoice(availableChoices))
+        counter++
+    }
+}
 
 //get the computers choice
 //get the players choice
