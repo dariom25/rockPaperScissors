@@ -1,6 +1,4 @@
 const availableChoices = ["rock", "paper", "scissors"]
-//const computerSelection = getComputerChoice()
-//const playerSelection = getPlayersChoice()
 
 function getComputerChoice(availableChoices) {
     let randomIndex = Math.floor(Math.random() * availableChoices.length);
@@ -49,12 +47,3 @@ function game() {
         counter++
     }
 }
-
-//get the computers choice
-//get the players choice
-//check if the the players answer is valid
-    //lower all letters of the players prompt
-    //check if prompt is rock, paper or scissors
-//compare the computers and players choice
-//determine who wins
-//start the loop again
