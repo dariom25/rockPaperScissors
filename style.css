@@ -27,6 +27,13 @@ body{
     justify-content: space-between;
 }
 
+.choice{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
 .player, .computer, .button{
     width: 130px;
     height: 130px;
@@ -34,6 +41,8 @@ body{
     border-radius: 15px;
     background-color: #F72585;
 }
+
+
 
 
 
