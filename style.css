@@ -18,9 +18,12 @@ body{
     font-size: 64px;
     border-radius: 10px;
     padding: 10px 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-section{
     display: flex;
     justify-content: space-between;
 }
+
