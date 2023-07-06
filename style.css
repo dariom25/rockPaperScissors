@@ -20,6 +20,10 @@ body{
     padding: 10px 50px;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    font-family: Play, sans-serif;
+    font-size: 96px;
+    font-weight: 700;
 }
 
 .info-section{
@@ -53,4 +57,4 @@ body{
 
 
 
-background-color: #7209B7;
+/* #7209B7  --> lilapink */
