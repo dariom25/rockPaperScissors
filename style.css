@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #3A0CA3;
+    align-items: center;
+}
+
+.content{
+    max-width: 1800px;
+}
+
+.header{ /*andere Schriftart und Schriftfarbe + es soll noch mehr space eingeommen werden */
+    background-color: #4CC9F0;
+    font-size: 64px;
+    border-radius: 10px;
+    padding: 10px 50px;
+}
