@@ -8,7 +8,7 @@ body{
 .content{ /*hier könnte ich noch mit width, max-width oder min-width rumspielen */
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 64px;
     max-width: 1500px;
     font-family: Play, sans-serif;
 }
@@ -61,6 +61,8 @@ body{
     display: flex;
     justify-content: space-between;
 }
+
+/*buttons mit hover und click sowie die border noch stylen*/
 
 
 
