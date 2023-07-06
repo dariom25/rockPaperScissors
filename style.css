@@ -3,13 +3,17 @@ body{
     flex-direction: column;
     background-color: #3A0CA3;
     align-items: center;
+    
 }
 
-.content{
-    max-width: 2500px;
+.content{ /*hier könnte ich noch mit width, max-width oder min-width rumspielen */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 1500px;
 }
 
-.header{ /*andere Schriftart und Schriftfarbe + es soll noch mehr space eingeommen werden */
+.header{ /*andere Schriftart und Schriftfarbe*/
     background-color: #4CC9F0;
     font-size: 64px;
     border-radius: 10px;
