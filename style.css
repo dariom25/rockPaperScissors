@@ -40,8 +40,8 @@ body{
 }
 
 .player, .computer, .button{
-    width: 130px;
-    height: 130px;
+    width: 200px;
+    height: 200px;
     border-style: solid;
     border-radius: 15px;
     background-color: #F72585;
@@ -54,7 +54,12 @@ body{
     font-weight: 700;
     color: #4361EE;
     display: flex;
-    justify-content: center;
+    justify-content: center; /*beide klassen so anpassen, dass sie zu den buttons passen*/
+}
+
+.button-section{
+    display: flex;
+    justify-content: space-between;
 }
 
 
