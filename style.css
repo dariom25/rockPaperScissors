@@ -11,6 +11,7 @@ body{
     flex-direction: column;
     gap: 32px;
     max-width: 1500px;
+    font-family: Play, sans-serif;
 }
 
 .header{ /*andere Schriftart und Schriftfarbe*/
@@ -36,6 +37,7 @@ body{
     flex-direction: column;
     gap: 16px;
     flex: 1;
+    align-items: center;
 }
 
 .player, .computer, .button{
@@ -52,6 +54,8 @@ body{
     font-size: 64px;
     font-weight: 700;
     color: #4361EE;
+    display: flex;
+    justify-content: center;
 }
 
 
