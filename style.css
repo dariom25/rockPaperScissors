@@ -42,7 +42,9 @@ body{
     background-color: #F72585;
 }
 
-
+.winning-message{
+    flex: 1;
+}
 
 
 
