@@ -27,3 +27,15 @@ body{
     justify-content: space-between;
 }
 
+.player, .computer, .button{
+    width: 130px;
+    height: 130px;
+    border-style: solid;
+    border-radius: 15px;
+    background-color: #F72585;
+}
+
+
+
+
+background-color: #7209B7;
