@@ -67,8 +67,19 @@ body{
 .button-section{
     display: flex;
     justify-content: space-between;
+    flex: 1;
 }
 
+.button{
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    padding: 0;
+    font-family: Play, sans-serif;
+    width: 206px;
+    height: 206px;
+    background-color: #7209B7;
+}
 /*buttons mit hover und click sowie die border noch stylen*/
 
 
