@@ -36,7 +36,7 @@ body{
     flex-direction: column;
     gap: 16px;
     flex: 1;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .player, .computer, .button{
@@ -54,7 +54,14 @@ body{
     font-weight: 700;
     color: #4361EE;
     display: flex;
-    justify-content: center; /*beide klassen so anpassen, dass sie zu den buttons passen*/
+}
+
+.winning-message{
+    justify-content: center;
+}
+
+.score{
+    justify-content: end;
 }
 
 .button-section{
