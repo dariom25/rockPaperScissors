@@ -90,6 +90,11 @@ body{
 .button:active{
     opacity: 0.5;
 }
+
+img{
+    width: 100px;
+    height: 100px;
+}
 /*buttons mit hover und click sowie die border noch stylen*/
 
 
