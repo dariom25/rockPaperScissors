@@ -80,6 +80,16 @@ body{
     height: 206px;
     background-color: #7209B7;
 }
+
+.button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.07ms;
+}
+
+.button:active{
+    opacity: 0.5;
+}
 /*buttons mit hover und click sowie die border noch stylen*/
 
 
