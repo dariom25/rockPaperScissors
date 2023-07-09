@@ -40,7 +40,8 @@ function game() {
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    displaySelections();
+    let playerSelection = button.id;
+    displaySelections(playerSelection);
   });
 });
 
@@ -53,25 +54,20 @@ function getComputerChoice() {
 //choose correct image for choice
 function chooseImageFromSelection(choice) {
     let img = document.createElement("img");
-    if (choice === 0) {
+    if (choice == 0) {
         img.setAttribute("src", "images/rock.png")
-    } else if (choice === 1) {
+    } else if (choice == 1) {
         img.setAttribute("src", "images/paper.png")
-    } else if (choice === 2) {
+    } else if (choice == 2) {
         img.setAttribute("src", "images/scissors.png")
     };
     return img
 }
 
 //display image on website
-function displaySelections(){
+function displaySelections(playerSelection){
     const playerDiv = document.querySelector(".player");
-    playerDiv.appendChild(chooseImageFromSelection(2));
+    playerDiv.appendChild(chooseImageFromSelection(playerSelection));
     const computerDiv = document.querySelector(".computer");
     computerDiv.appendChild(chooseImageFromSelection(getComputerChoice()));
 }
-
-
-
-
-
