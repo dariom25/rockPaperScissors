@@ -60,7 +60,7 @@ function createImageFromChoice(choice) {
     } else if (choice === 1) {
         img.setAttribute("src", "images/paper.png")
     } else if (choice === 2) {
-        img.src = "images/scissors.png"
+        img.setAttribute("src", "images/scissors.png")
     };
     return img
 }
