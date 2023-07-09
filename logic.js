@@ -1,10 +1,4 @@
-const availableChoices = ["rock", "paper", "scissors"]
 
-function getComputerChoice(availableChoices) {
-    let randomIndex = Math.floor(Math.random() * availableChoices.length);
-    let computersChoice = availableChoices[randomIndex];
-    return computersChoice
-}
 
 function getPlayersChoice() {
     let playersChoice = prompt("Please type either rock, paper or scissors.");
@@ -39,3 +33,16 @@ function game() {
         counter++
     }
 }
+
+//new code here
+
+//reference all buttons and add an eventlistener to them
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    alert("button.id");
+  });
+});
+
+
+
