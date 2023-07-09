@@ -37,6 +37,7 @@ body{
     gap: 16px;
     flex: 1;
     align-items: flex-start;
+    text-align: center;
 }
 
 .player, .computer, .button{
