@@ -44,5 +44,33 @@ buttons.forEach((button) => {
   });
 });
 
+//get the computers choice
+const availableChoices = ["rock", "paper", "scissors"]
+function getComputerChoice(availableChoices) {
+    let randomIndex = Math.floor(Math.random() * availableChoices.length);
+    let computersChoice = availableChoices[randomIndex];
+    return computersChoice
+}
 
+//choose correct image for choice
+//take computers/players choice as argument as int
+function createImageFromChoice(choice) {
+    let img = document.createElement("img");
+    if (choice === 0) {
+        img.setAttribute("src", "images/rock.png")
+    } else if (choice === 1) {
+        img.setAttribute("src", "images/paper.png")
+    } else if (choice === 2) {
+        img.setAttribute("src", "images/scissors.png")
+    };
+    return img
+}
+//create new image element
+//IF image = rock/0
+    //set image in image-element to rock
+//ELSE IF image = paper/1
+    //set image in image-element to paper
+//ELSE IF image = scissors/2
+    //set image in image-element to scissors
+//return image-element
 
