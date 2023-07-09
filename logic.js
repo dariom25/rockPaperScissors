@@ -40,7 +40,7 @@ function game() {
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    alert("button.id");
+    displayPlayersChoice();
   });
 });
 
@@ -53,7 +53,6 @@ function getComputerChoice(availableChoices) {
 }
 
 //choose correct image for choice
-//take computers/players choice as argument as int
 function createImageFromChoice(choice) {
     let img = document.createElement("img");
     if (choice === 0) {
@@ -61,16 +60,15 @@ function createImageFromChoice(choice) {
     } else if (choice === 1) {
         img.setAttribute("src", "images/paper.png")
     } else if (choice === 2) {
-        img.setAttribute("src", "images/scissors.png")
+        img.src = "images/scissors.png"
     };
     return img
 }
-//create new image element
-//IF image = rock/0
-    //set image in image-element to rock
-//ELSE IF image = paper/1
-    //set image in image-element to paper
-//ELSE IF image = scissors/2
-    //set image in image-element to scissors
-//return image-element
+
+//display image on website
+//reference the player-div
+function displayPlayersChoice(){
+    const playerDiv = document.querySelector(".player");
+    playerDiv.appendChild(createImageFromChoice(2));
+}
 
