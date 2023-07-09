@@ -41,7 +41,7 @@ body{
 }
 
 .selection-text{
-    margin: 8px;
+    margin-top: 8px;
 }
 
 .player, .computer, .button{
