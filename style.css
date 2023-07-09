@@ -40,6 +40,10 @@ body{
     text-align: center;
 }
 
+.selection-text{
+    margin: 8px;
+}
+
 .player, .computer, .button{
     width: 200px;
     height: 200px;
