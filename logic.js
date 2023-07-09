@@ -40,20 +40,18 @@ function game() {
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    displayPlayersChoice();
+    displaySelections();
   });
 });
 
 //get the computers choice
-const availableChoices = ["rock", "paper", "scissors"]
-function getComputerChoice(availableChoices) {
-    let randomIndex = Math.floor(Math.random() * availableChoices.length);
-    let computersChoice = availableChoices[randomIndex];
+function getComputerChoice() {
+    let computersChoice = Math.floor(Math.random() * 3);
     return computersChoice
 }
 
 //choose correct image for choice
-function createImageFromChoice(choice) {
+function chooseImageFromSelection(choice) {
     let img = document.createElement("img");
     if (choice === 0) {
         img.setAttribute("src", "images/rock.png")
@@ -66,9 +64,14 @@ function createImageFromChoice(choice) {
 }
 
 //display image on website
-//reference the player-div
-function displayPlayersChoice(){
+function displaySelections(){
     const playerDiv = document.querySelector(".player");
-    playerDiv.appendChild(createImageFromChoice(2));
+    playerDiv.appendChild(chooseImageFromSelection(2));
+    const computerDiv = document.querySelector(".computer");
+    computerDiv.appendChild(chooseImageFromSelection(getComputerChoice()));
 }
+
+
+
+
 
