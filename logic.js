@@ -71,3 +71,10 @@ function displaySelections(playerSelection){
     const computerDiv = document.querySelector(".computer");
     computerDiv.appendChild(chooseImageFromSelection(getComputerChoice()));
 }
+
+//next steps:
+//1. prevent that images are added --> remove image when calling displaySelections
+//2. check who wins the round
+//3. Display text which anounces who has won the round
+//4. Display text to show the scores
+//5. Restyle the choice-section --> put text in paragraph and then add margin-bottom to it
