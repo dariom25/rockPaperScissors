@@ -65,6 +65,11 @@ body{
     justify-content: center;
 }
 
+.result-text{
+    text-align: center;
+    margin-top: 0;
+}
+
 .score{
     justify-content: end;
 }
