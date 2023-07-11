@@ -6,7 +6,7 @@ function getPlayersChoice() {
     return playersChoice
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRounds(playerSelection, computerSelection) {
     console.log("The computer chose: " + computerSelection);
     console.log("You chose: " + playerSelection)
     if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -34,6 +34,10 @@ function game() {
     }
 }
 
+
+
+
+
 //new code here
 
 //reference all buttons and add an eventlistener to them
@@ -41,7 +45,9 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = button.id;
-    displaySelections(playerSelection);
+    let computerSelection = getComputerChoice();
+    displaySelections(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
   });
 });
 
@@ -65,15 +71,47 @@ function chooseImageFromSelection(choice) {
 }
 
 //display image on website
-function displaySelections(playerSelection){
+function displaySelections(playerSelection, computerSelection){
     const playerDiv = document.querySelector(".player");
     playerDiv.appendChild(chooseImageFromSelection(playerSelection));
     const computerDiv = document.querySelector(".computer");
-    computerDiv.appendChild(chooseImageFromSelection(getComputerChoice()));
+    computerDiv.appendChild(chooseImageFromSelection(computerSelection));
+}
+
+//check who wins
+function playRound(playerSelection, computerSelection) {
+    const winningMessage = document.querySelector(".winning-message");
+    console.log(winningMessage)
+    let computerWins = document.createElement("p")
+
+    if (playerSelection == 0 && computerSelection == 2) {
+        computerWins.textContent = "Player wins!";
+        winningMessage.appendChild(computerWins);
+    } else if (playerSelection == 1 && computerSelection == 0) {
+        computerWins.textContent = "Player wins!";
+        winningMessage.appendChild(computerWins);    
+    } else if (playerSelection == 2 && computerSelection == 1) {
+        computerWins.textContent = "Player wins!";
+        winningMessage.appendChild(computerWins);
+    } else if (playerSelection == 1 && computerSelection == 2) {
+        computerWins.textContent = "Computer wins!";
+        winningMessage.appendChild(computerWins);
+    } else if (playerSelection == 2 && computerSelection == 0) {
+        computerWins.textContent = "Computer wins!";
+        winningMessage.appendChild(computerWins);
+    } else if (playerSelection == 0 && computerSelection == 1) {
+        computerWins.textContent = "Computer wins!";
+        winningMessage.appendChild(computerWins);
+    } else {
+        computerWins.textContent = "It's a draw!";
+        winningMessage.appendChild(computerWins);
+    }
 }
 
 //next steps:
 //1. prevent that images are added --> remove image when calling displaySelections
+    //get list of elements which are in the choice-section
+    //round-based system where everyround the element is resetted
 //2. check who wins the round
 //3. Display text which anounces who has won the round
 //4. Display text to show the scores
