@@ -82,29 +82,30 @@ function displaySelections(playerSelection, computerSelection){
 function playRound(playerSelection, computerSelection) {
     const winningMessage = document.querySelector(".winning-message");
     console.log(winningMessage)
-    let computerWins = document.createElement("p")
+    let result = document.createElement("p")
+    result.classList.add("result-text")
 
     if (playerSelection == 0 && computerSelection == 2) {
-        computerWins.textContent = "Player wins!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "Player wins!";
+        winningMessage.appendChild(result);
     } else if (playerSelection == 1 && computerSelection == 0) {
-        computerWins.textContent = "Player wins!";
-        winningMessage.appendChild(computerWins);    
+        result.textContent = "Player wins!";
+        winningMessage.appendChild(result);    
     } else if (playerSelection == 2 && computerSelection == 1) {
-        computerWins.textContent = "Player wins!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "Player wins!";
+        winningMessage.appendChild(result);
     } else if (playerSelection == 1 && computerSelection == 2) {
-        computerWins.textContent = "Computer wins!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "Computer wins!";
+        winningMessage.appendChild(result);
     } else if (playerSelection == 2 && computerSelection == 0) {
-        computerWins.textContent = "Computer wins!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "Computer wins!";
+        winningMessage.appendChild(result);
     } else if (playerSelection == 0 && computerSelection == 1) {
-        computerWins.textContent = "Computer wins!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "Computer wins!";
+        winningMessage.appendChild(result);
     } else {
-        computerWins.textContent = "It's a draw!";
-        winningMessage.appendChild(computerWins);
+        result.textContent = "It's a draw!";
+        winningMessage.appendChild(result);
     }
 }
 
