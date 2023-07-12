@@ -35,7 +35,7 @@ function game() {
 }
 
 
-
+//2nd round: player paper; pc scissors == visual bug
 
 
 //new code here
@@ -49,15 +49,27 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = button.id;
     let computerSelection = getComputerChoice();
-    if (playerScore == 0 && computerScore == 0) {
+    if (playerScore == 0 && computerScore == 0) {// checks if it is the first round
         displaySelections(playerSelection, computerSelection);
         playRound(playerSelection, computerSelection);
         displayScore();
     } else {
-        removeElements();
-        displaySelections(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        displayScore();
+        if (playerScore < 5 && computerScore < 5) {// checks if somebody has won
+            removeElements();
+            displaySelections(playerSelection, computerSelection);
+            playRound(playerSelection, computerSelection);
+            displayScore();
+        } else if (playerScore == 5) {
+            alert("Player won.");
+            removeElements();
+            playerScore = 0
+            computerScore = 0
+        } else if (computerScore == 5) {
+            alert("Computer won.");
+            removeElements();
+            playerScore = 0
+            computerScore = 0
+        };
     };
 
   });
