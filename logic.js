@@ -40,14 +40,26 @@ function game() {
 
 //new code here
 
+let playerScore = 0;
+let computerScore = 0;
+
 //reference all buttons and add an eventlistener to them
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = button.id;
     let computerSelection = getComputerChoice();
-    displaySelections(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
+    if (playerScore == 0 && computerScore == 0) {
+        displaySelections(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        displayScore();
+    } else {
+        removeElements();
+        displaySelections(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        displayScore();
+    };
+
   });
 });
 
@@ -81,39 +93,53 @@ function displaySelections(playerSelection, computerSelection){
 //check who wins
 function playRound(playerSelection, computerSelection) {
     const winningMessage = document.querySelector(".winning-message");
-    console.log(winningMessage)
-    let result = document.createElement("p")
-    result.classList.add("result-text")
-
+    let resultText = document.createElement("p");
+    resultText.classList.add("result-text");
     if (playerSelection == 0 && computerSelection == 2) {
-        result.textContent = "Player wins!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "Player wins!";
+        winningMessage.appendChild(resultText);
+        playerScore++;
     } else if (playerSelection == 1 && computerSelection == 0) {
-        result.textContent = "Player wins!";
-        winningMessage.appendChild(result);    
+        resultText.textContent = "Player wins!";
+        winningMessage.appendChild(resultText);
+        playerScore++;    
     } else if (playerSelection == 2 && computerSelection == 1) {
-        result.textContent = "Player wins!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "Player wins!";
+        winningMessage.appendChild(resultText);
+        playerScore++;
     } else if (playerSelection == 1 && computerSelection == 2) {
-        result.textContent = "Computer wins!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "Computer wins!";
+        winningMessage.appendChild(resultText);
+        computerScore++;
     } else if (playerSelection == 2 && computerSelection == 0) {
-        result.textContent = "Computer wins!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "Computer wins!";
+        winningMessage.appendChild(resultText);
+        computerScore++;
     } else if (playerSelection == 0 && computerSelection == 1) {
-        result.textContent = "Computer wins!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "Computer wins!";
+        winningMessage.appendChild(resultText);
+        computerScore++;
     } else {
-        result.textContent = "It's a draw!";
-        winningMessage.appendChild(result);
+        resultText.textContent = "It's a draw!";
+        winningMessage.appendChild(resultText);
     }
 }
 
-//next steps:
-//1. prevent that images are added --> remove image when calling displaySelections
-    //get list of elements which are in the choice-section
-    //round-based system where everyround the element is resetted
-//2. check who wins the round
-//3. Display text which anounces who has won the round
-//4. Display text to show the scores
-//5. Restyle the choice-section --> put text in paragraph and then add margin-bottom to it
+function displayScore() { //wenn text hinzugefügt wird, verschiebt sich das ganze design
+    const scoreMessage = document.querySelector(".score")
+    let score = document.createElement("p");
+    score.classList.add("result-text");
+    score.textContent = `Player:\n ${playerScore}\n Computer:\n ${computerScore}`;
+    scoreMessage.appendChild(score);
+}
+
+function removeElements() {
+    const resultTexts = document.querySelectorAll(".result-text");
+    resultTexts.forEach((resultText) => {
+        resultText.remove()
+    });
+    const imgPlayer = document.querySelector(".player > img")
+    imgPlayer.remove()
+    const imgComputer = document.querySelector(".computer > img")
+    imgComputer.remove()
+}

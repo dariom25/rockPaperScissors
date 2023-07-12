@@ -9,7 +9,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 64px;
-    max-width: 1500px;
+    width: 1200px;
     font-family: Play, sans-serif;
 }
 
