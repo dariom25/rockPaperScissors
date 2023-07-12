@@ -35,7 +35,8 @@ function game() {
 }
 
 
-//2nd round: player paper; pc scissors == visual bug
+//2nd round: player paper or rock; pc scissors paper == visual bug
+//visual bugs when winning and then clicking a button
 
 
 //new code here
@@ -54,19 +55,28 @@ buttons.forEach((button) => {
         playRound(playerSelection, computerSelection);
         displayScore();
     } else {
-        if (playerScore < 5 && computerScore < 5) {// checks if somebody has won
+        if (playerScore <= 5 && computerScore <= 5) {// checks if somebody has won
             removeElements();
             displaySelections(playerSelection, computerSelection);
             playRound(playerSelection, computerSelection);
             displayScore();
-        } else if (playerScore == 5) {
-            alert("Player won.");
+        };
+        if (playerScore == 5) {
             removeElements();
+            const scoreMessage = document.querySelector(".score")
+            let score = document.createElement("p");
+            score.classList.add("result-text");
+            score.textContent = "Player won the game!";
+            scoreMessage.appendChild(score);
             playerScore = 0
             computerScore = 0
         } else if (computerScore == 5) {
-            alert("Computer won.");
             removeElements();
+            const scoreMessage = document.querySelector(".score")
+            let score = document.createElement("p");
+            score.classList.add("result-text");
+            score.textContent = "Computer won the game!";
+            scoreMessage.appendChild(score);
             playerScore = 0
             computerScore = 0
         };
@@ -137,7 +147,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function displayScore() { //wenn text hinzugefügt wird, verschiebt sich das ganze design
+function displayScore() {
     const scoreMessage = document.querySelector(".score")
     let score = document.createElement("p");
     score.classList.add("result-text");
