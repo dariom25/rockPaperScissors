@@ -65,7 +65,7 @@ body{
     justify-content: center;
 }
 
-.result-text{
+.result-text, .score-text{
     text-align: center;
     margin-top: 0;
 }

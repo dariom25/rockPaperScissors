@@ -1,41 +1,7 @@
 
 
-function getPlayersChoice() {
-    let playersChoice = prompt("Please type either rock, paper or scissors.");
-    playersChoice = playersChoice.toLowerCase();
-    return playersChoice
-}
 
-function playRounds(playerSelection, computerSelection) {
-    console.log("The computer chose: " + computerSelection);
-    console.log("You chose: " + playerSelection)
-    if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("Computer loses! Rock beats scissors.")
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("Computer loses! Paper beats rock.")
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("Computer loses! Scissors beat paper.")
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log("You lose! Scissors beat paper.")
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log("You lose! Rock beats scissors.")
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("You lose! Paper beats rock.")
-    } else {
-        console.log("It's a draw.")
-    }
-}
-
-function game() {
-    let counter = 0
-    while (counter < 5) {
-        playRound(getPlayersChoice(), getComputerChoice(availableChoices))
-        counter++
-    }
-}
-
-
-//2nd round: player paper or rock; pc scissors paper == visual bug
+//2nd round: wenn 1. runde gespielt, aber untentschieden, dann sind score noch null, deshalb visual bug
 //visual bugs when winning and then clicking a button
 
 
@@ -43,6 +9,7 @@ function game() {
 
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
 
 //reference all buttons and add an eventlistener to them
 const buttons = document.querySelectorAll('button');
@@ -50,40 +17,33 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = button.id;
     let computerSelection = getComputerChoice();
-    if (playerScore == 0 && computerScore == 0) {// checks if it is the first round
+    if (round == 0) {// checks if it is the first round
         displaySelections(playerSelection, computerSelection);
         playRound(playerSelection, computerSelection);
         displayScore();
     } else {
-        if (playerScore <= 5 && computerScore <= 5) {// checks if somebody has won
-            removeElements();
+        if (playerScore < 5 && computerScore < 5) {// checks if somebody has won
+            removeRoundMessage();
+            removeScoreMessage();
+            removeSelections();
             displaySelections(playerSelection, computerSelection);
             playRound(playerSelection, computerSelection);
             displayScore();
-        };
-        if (playerScore == 5) {
-            removeElements();
-            const scoreMessage = document.querySelector(".score")
-            let score = document.createElement("p");
-            score.classList.add("result-text");
-            score.textContent = "Player won the game!";
-            scoreMessage.appendChild(score);
-            playerScore = 0
-            computerScore = 0
-        } else if (computerScore == 5) {
-            removeElements();
-            const scoreMessage = document.querySelector(".score")
-            let score = document.createElement("p");
-            score.classList.add("result-text");
-            score.textContent = "Computer won the game!";
-            scoreMessage.appendChild(score);
-            playerScore = 0
-            computerScore = 0
-        };
+            if (playerScore == 5) {
+                removeRoundMessage();
+                removeSelections();
+            } else if (computerScore == 5) {
+                removeRoundMessage();
+                removeSelections();
+            }
+        } 
+
     };
 
   });
 });
+
+
 
 //get the computers choice
 function getComputerChoice() {
@@ -121,47 +81,65 @@ function playRound(playerSelection, computerSelection) {
         resultText.textContent = "Player wins!";
         winningMessage.appendChild(resultText);
         playerScore++;
+        round++;
     } else if (playerSelection == 1 && computerSelection == 0) {
         resultText.textContent = "Player wins!";
         winningMessage.appendChild(resultText);
-        playerScore++;    
+        playerScore++;  
+        round++;  
     } else if (playerSelection == 2 && computerSelection == 1) {
         resultText.textContent = "Player wins!";
         winningMessage.appendChild(resultText);
         playerScore++;
+        round++;
     } else if (playerSelection == 1 && computerSelection == 2) {
         resultText.textContent = "Computer wins!";
         winningMessage.appendChild(resultText);
         computerScore++;
+        round++;
     } else if (playerSelection == 2 && computerSelection == 0) {
         resultText.textContent = "Computer wins!";
         winningMessage.appendChild(resultText);
         computerScore++;
+        round++;
     } else if (playerSelection == 0 && computerSelection == 1) {
         resultText.textContent = "Computer wins!";
         winningMessage.appendChild(resultText);
         computerScore++;
+        round++;
     } else {
         resultText.textContent = "It's a draw!";
         winningMessage.appendChild(resultText);
+        round++;
     }
 }
 
 function displayScore() {
     const scoreMessage = document.querySelector(".score")
     let score = document.createElement("p");
-    score.classList.add("result-text");
+    score.classList.add("score-text");
     score.textContent = `Player:\n ${playerScore}\n Computer:\n ${computerScore}`;
     scoreMessage.appendChild(score);
 }
 
-function removeElements() {
-    const resultTexts = document.querySelectorAll(".result-text");
-    resultTexts.forEach((resultText) => {
-        resultText.remove()
+function removeRoundMessage() {
+    const resultTexts = document.querySelector(".result-text");
+    resultTexts.remove();
+}
+
+function removeScoreMessage() {
+    const scoreTexts = document.querySelector(".score-text");
+    scoreTexts.remove();
+}
+
+function removeSelections() {
+    const imgsPlayer = document.querySelectorAll(".player > img");
+    imgsPlayer.forEach((imgPlayer) => {
+        imgPlayer.remove();
     });
-    const imgPlayer = document.querySelector(".player > img")
-    imgPlayer.remove()
-    const imgComputer = document.querySelector(".computer > img")
-    imgComputer.remove()
+
+    const imgsComputer = document.querySelectorAll(".computer > img");
+    imgsComputer.forEach((imgComputer) => {
+        imgComputer.remove();
+    });
 }
