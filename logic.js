@@ -31,10 +31,10 @@ buttons.forEach((button) => {
             displayScore();
             if (playerScore == 5) {
                 removeRoundMessage();
-                removeSelections();
+                winGameMessage();
             } else if (computerScore == 5) {
                 removeRoundMessage();
-                removeSelections();
+                winGameMessage();
             }
         } 
 
@@ -142,4 +142,22 @@ function removeSelections() {
     imgsComputer.forEach((imgComputer) => {
         imgComputer.remove();
     });
+}
+
+function winGameMessage() { //button wont be appended yet + function to reset the game
+    if (playerScore == 5) {
+        const playerWinsText = document.createElement("p");
+        playerWinsText.textContent = "Player wins the Game! Click, to play another round.";
+        playerWinsText.classList.add(".winning-message");
+        playerWinsText.setAttribute("style", "text-align: center; margin: 0");
+        const winningMessage = document.querySelector(".winning-message");
+        winningMessage.appendChild(playerWinsText);
+    } else if (computerScore == 5) {
+        const computerWinsText = document.createElement("p");
+        computerWinsText.textContent = "Pc wins the Game! Click, to play another round.";
+        computerWinsText.classList.add(".winning-message");
+        computerWinsText.setAttribute("style", "text-align: center; margin: 0");
+        const winningMessage = document.querySelector(".winning-message");
+        winningMessage.appendChild(computerWinsText);
+    }
 }
