@@ -23,18 +23,22 @@ buttons.forEach((button) => {
         displayScore();
     } else {
         if (playerScore < 5 && computerScore < 5) {// checks if somebody has won
-            removeRoundMessage();
+            removeRoundMesseage();
             removeScoreMessage();
             removeSelections();
             displaySelections(playerSelection, computerSelection);
             playRound(playerSelection, computerSelection);
             displayScore();
             if (playerScore == 5) {
-                removeRoundMessage();
+                removeRoundMesseage();
                 winGameMessage();
+                playerScore = 0;
+                computerScore = 0;
             } else if (computerScore == 5) {
-                removeRoundMessage();
+                removeRoundMesseage();
                 winGameMessage();
+                playerScore = 0;
+                computerScore = 0;
             }
         } 
 
@@ -122,7 +126,7 @@ function displayScore() {
     scoreMessage.appendChild(score);
 }
 
-function removeRoundMessage() {
+function removeRoundMesseage() {
     const resultTexts = document.querySelector(".result-text");
     resultTexts.remove();
 }
@@ -144,20 +148,18 @@ function removeSelections() {
     });
 }
 
-function winGameMessage() { //button wont be appended yet + function to reset the game
+function winGameMessage() {
     if (playerScore == 5) {
-        const playerWinsText = document.createElement("p");
-        playerWinsText.textContent = "Player wins the Game! Click, to play another round.";
-        playerWinsText.classList.add(".winning-message");
-        playerWinsText.setAttribute("style", "text-align: center; margin: 0");
+        const playerWinsButton = document.createElement("p");
+        playerWinsButton.textContent = "Player wins the game! Click, to play another one.";
+        playerWinsButton.classList.add("result-text");
         const winningMessage = document.querySelector(".winning-message");
-        winningMessage.appendChild(playerWinsText);
+        winningMessage.appendChild(playerWinsButton);
     } else if (computerScore == 5) {
-        const computerWinsText = document.createElement("p");
-        computerWinsText.textContent = "Pc wins the Game! Click, to play another round.";
-        computerWinsText.classList.add(".winning-message");
-        computerWinsText.setAttribute("style", "text-align: center; margin: 0");
+        const computerWinsButton = document.createElement("p");
+        computerWinsButton.textContent = "Pc wins the game! Click, to play another one.";
+        computerWinsButton.classList.add("result-text");
         const winningMessage = document.querySelector(".winning-message");
-        winningMessage.appendChild(computerWinsText);
+        winningMessage.appendChild(computerWinsButton);
     }
 }
