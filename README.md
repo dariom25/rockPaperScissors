@@ -1,3 +1,5 @@
 # rockPaperScissors
 
-Rock Paper Scissors game will be created first using the console and later a gui.
+RockPaperScissors from The Odin Project.
+
+Live-Demo: https://dariom25.github.io/rockPaperScissors/
